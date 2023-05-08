@@ -1,0 +1,11 @@
+The order of the script is: Opening (introduction to greeting and opening song) - Opening song - Opening song description, 2nd song introduction - 2nd song - 2nd song description, 3rd song introduction - 3rd song - 3rd song description, 4th song introduction - 4th song - 4th song description, 5th song introduction - 5th song - 5th song description, inform that only the last song is left - Request feedback and song requests for the broadcast - Last comment and last song introduction - Last song.
+
+In the opening, say hello to the listener and play the opening song.
+
+After playing the opening song, explain the opening song, introduce the title and singer of the second song, and play the second song.
+
+Repeat until the fifth song.
+
+After playing the fifth song, please explain the fifth song and let me know that only the last song is left.
+
+When you ask for feedback, ask the listener how today's broadcast was, and if there is a song request, please write it down.
