@@ -1,5 +1,7 @@
 # eosadae
 
+pip install -r requirements.txt 진행하여 필요 패키지 다운로드
+
 힐링 -> 카테고리 category
 꽃말 수업 -> 주제/토픽 topic
 순이와 함께하는 꽃말 수업 -> 제목/방송제목/타이틀 title
