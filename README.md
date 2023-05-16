@@ -15,3 +15,5 @@ re-generate 할때 넣는 '사유' -> 피드백 텍스트 feedback_text
 
 처음 받는 카테고리/주제/추가지시 -> 기본 입력값 basic_input
 재생성때 받는 별점/사유 -> 피드백 입력값 feedback_input
+
+topic 안 주어졌을때 대응할 수 있도록 수정 필요

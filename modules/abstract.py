@@ -1,3 +1,4 @@
+"""Abstract Class를 만들기 위한 모듈"""
 from abc import ABCMeta, abstractmethod
 
 class AbstractUserInputGetter(metaclass=ABCMeta):
@@ -64,14 +65,14 @@ class AbstractDataAddressGetter(metaclass=ABCMeta):
     detailed_script_policy_address = '상세한-대본-정책 데이터까지 상대 경로'
 
     @abstractmethod
-    def get_example_script_address(self, category, topic):
+    def get_example_script_address(self):
         """
         주어진 주제에 맞는 예시 대본의 상대 경로로 다음 속성을 재정의함.
         - example_script_text_address
         """
 
     @abstractmethod
-    def get_guideline_address(self, category, topic):
+    def get_guideline_address(self):
         """
         주어진 주제에 맞는 가이드라인의 상대 경로로 다음 속성을 재정의함.
         - guideline_by_line_text_address
@@ -80,7 +81,7 @@ class AbstractDataAddressGetter(metaclass=ABCMeta):
         """
 
     @abstractmethod
-    def get_every_data_address(self, category, topic):
+    def get_every_data_address(self):
         """
         다음 메소드를 모두 실행하여,
         - get_example_script_address(topic)
@@ -100,7 +101,8 @@ class AbstractPromptDataGetter(metaclass=ABCMeta):
     topic = '입력받은 주제' # __init__(category, topic)으로 받음
 
     data_address = 'DataAddressKeeper 호출해서 경로 가져오기'
-    # data_address.get_every_data_address(category, topic)
+    # DataAddressKeeper(category, topic)
+    # data_address.get_every_data_address()
     example_script_data = '예시대본 텍스트 데이터'
     guideline_data = '가이드라인 텍스트 데이터'
     general_policy_data = '일반-정책 텍스트 데이터'
@@ -115,25 +117,25 @@ class AbstractPromptDataGetter(metaclass=ABCMeta):
         """
 
     @abstractmethod
-    def get_guideline_data(self, type='order'):
+    def get_guideline_data(self, data_type='order'):
         """
-        data_address.guideline_by_{type}_text_address 경로에서,
+        data_address.guideline_by_{data_type}_text_address 경로에서,
         해당 파일의 텍스트를 읽고 아래 속성을 재정의함.
         - guideline_data
         """
 
     @abstractmethod
-    def get_general_policy_data(self, type='detailed'):
+    def get_general_policy_data(self, data_type='detailed'):
         """
-        data_address.{type}_general_policy_address 경로에서,
+        data_address.{data_type}_general_policy_address 경로에서,
         해당 파일의 텍스트를 읽고 아래 속성을 재정의함.
         - general_policy_data
         """
 
     @abstractmethod
-    def get_script_policy_data(self, type='detailed'):
+    def get_script_policy_data(self, data_type='detailed'):
         """
-        data_address.{type}_script_policy_address 경로에서,
+        data_address.{data_type}_script_policy_address 경로에서,
         해당 파일의 텍스트를 읽고 아래 속성을 재정의함.
         - script_policy_data
         """
@@ -174,7 +176,6 @@ class AbstractReadyMadePromptGetter(metaclass=ABCMeta):
     @abstractmethod
     def generate_prompt_after_script_policy(self):
         """
-        기존 코드의 set_prompt_after_policy() 참고
         기존 코드의 prompt_with_example_script + prompt_after_policy
 
         다음 데이터를 활용하여,
@@ -183,17 +184,6 @@ class AbstractReadyMadePromptGetter(metaclass=ABCMeta):
 
         다음 속성을 재정의함.
         - prompt_after_script_policy
-        """
-
-    @abstractmethod
-    def generate_check_prompt_after_script_policy(self):
-        """
-        다음 데이터를 활용하여,
-        - category
-        - topic
-
-        다음 속성을 재정의함.
-        - check_prompt_after_script_policy
         """
 
 class AbstractScriptPromptGenerator(metaclass=ABCMeta):
@@ -300,17 +290,39 @@ class AbstractImagePromptGenerator(metaclass=ABCMeta):
         - final_prompt
         """
 
-class AbstractContinuePromptGenerator(metaclass=ABCMeta):
-    """끊긴 답변을 이어나가도록 하는 프롬프트 제작"""
-
+# 개발 필요
 class AbstractPromptDivider(metaclass=ABCMeta):
     """프롬프트를 길이에 맞춰 분할"""
 
+# 개발 필요
+class AbstractContinuePromptGenerator(metaclass=ABCMeta):
+    """끊긴 답변을 이어나가도록 하는 프롬프트 제작"""
+
 class AbstractApiPromptSender(metaclass=ABCMeta):
     """GPT API에 프롬프트 전송"""
+    api_key = 'API Key'
+    prompt = '전송할 프롬프트'  # __init__(self, prompt)로 받음
+    response = '받은 답변'
 
-class AbstractApiTextReciever(metaclass=ABCMeta):
+    @abstractmethod
+    def get_api_key(self):
+        """dotenv를 활용하여 open ai api key 받음"""
+
+    @abstractmethod
+    def generate_response(self):
+        """
+        다음 데이터를 활용하여,
+        - api_key
+        - prompt
+
+        다음 속성을 재정의함.
+        - response
+        """
+
+# 개발 필요
+class AbstractApiTextReceiver(metaclass=ABCMeta):
     """GPT API에서 받은 답변에서 텍스트를 추출함"""
 
-class AbstractApiImageReciever(metaclass=ABCMeta):
+# 개발 필요
+class AbstractApiImageReceiver(metaclass=ABCMeta):
     """GPT API에서 받은 답변에서 이미지를 추출함"""
