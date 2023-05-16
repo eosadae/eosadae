@@ -17,6 +17,7 @@ class UserInputGetterSooni(AbstractUserInputGetter):
         self.set_example_attribute()
 
     def get_feedback_input(self):
+        # 피드백 점수 int 아니고 str 되도록 신경쓰기
         self.set_example_attribute()
 
     def get_keyword_input(self):
@@ -27,7 +28,7 @@ class UserInputGetterSooni(AbstractUserInputGetter):
         self.topic = '꽃말_수업'
         self.additional_request = '꽃 중에 장미꽃은 제외해줘.'
 
-        self.feedback_score = 4
+        self.feedback_score = '4'
         self.feedback_text = '지금 다 좋은데, 표현이 중복되는게 많아서 조금 더 다채롭게 말해봐.'
 
         self.keyword_for_image = '꽃'

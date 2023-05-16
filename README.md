@@ -1,5 +1,7 @@
 # eosadae
 
+.env에 본인 open ai api key 넣기
+
 pip install -r requirements.txt 진행하여 필요 패키지 다운로드
 
 힐링 -> 카테고리 category

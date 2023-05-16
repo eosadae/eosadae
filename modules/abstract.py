@@ -173,6 +173,14 @@ class AbstractReadyMadePromptGetter(metaclass=ABCMeta):
     check_prompt_before_general_policy = '(채점용) 일반-정책 전에 넣을 프롬프트'
     check_prompt_after_script_policy = '(채점용) 대본-정책 이후에 넣을 프롬프트'
 
+    regeneration_prompt_before_original_prompt = '(재생성용) 원래 생성된 프롬프트 전에 넣을 프롬프트'
+    regeneration_prompt_before_original_script = '(재생성용) 원래 생성된 대본 전에 넣을 프롬프트'
+    regeneration_prompt_before_feedback_score = '(재생성용) 피드백 점수 전에 넣을 프롬프트'
+    regeneration_prompt_before_feedback_text = '(재생성용) 피드백 텍스트 전에 넣을 프롬프트'
+    regeneration_prompt_after_feedback_text = '(재생성용) 피드백 텍스트 이후에 넣을 프롬프트'
+
+    image_prompt_before_keyword = '(이미지 생성용) 키워드 전에 넣을 프롬프트'
+
     @abstractmethod
     def generate_prompt_after_script_policy(self):
         """
@@ -220,10 +228,11 @@ class AbstractScriptPromptGenerator(metaclass=ABCMeta):
 
 class AbstractCheckPolicyPromptGenerator(metaclass=ABCMeta):
     """정책 채점용 프롬프트 제작"""
-    category = '입력받은 카테고리'  # __init__(category, topic)으로 받음
-    topic = '입력받은 주제' # __init__(category, topic)으로 받음
+    category = '입력받은 카테고리'  # __init__(category, topic, original_script)으로 받음
+    topic = '입력받은 주제' # __init__(category, topic, original_script)으로 받음
 
-    original_script = '원래 생성된 대본'    # __init__(original_script)로 받음
+    original_script = '원래 생성된 대본'    # __init__(category, topic, original_script)으로 받음
+
     prompt_data = 'PromptDataGetter 호출해서 데이터 가져오기'
     # PromptDataGetter(category, topic)
     # prompt_data.get_every_data(guideline_type, general_policy_type, script_policy_type)
@@ -258,16 +267,23 @@ class AbstractRegenerationPromptGenerator(metaclass=ABCMeta):
     user_input = 'InputGetter 호출해서 데이터 가져오기'
     # user_input.get_feedback_input()
 
+    ready_made_prompt = 'ReadyMadePromptGetter 호출해서 데이터 가져오기'
+
     final_regeneration_prompt = '최종 프롬프트'
 
     @abstractmethod
     def generate_regeneration_prompt(self):
         """
         다음 데이터를 활용하여,
-        - original_prompt
+        - ready_made_prompt.regeneration_prompt_before_original_script
         - original_script
+        - ready_made_prompt.regeneration_prompt_before_original_prompt
+        - original_prompt
+        - ready_made_prompt.regeneration_prompt_before_feedback_score
         - user_input.feedback_score
+        - ready_made_prompt.regeneration_prompt_before_feedback_text
         - user_input.feedback_text
+        - ready_made_prompt.regeneration_prompt_after_feedback_text
 
         다음 속성을 재정의함.
         - final_regeneration_prompt
@@ -278,12 +294,15 @@ class AbstractImagePromptGenerator(metaclass=ABCMeta):
     user_input = 'InputGetter 호출해서 데이터 가져오기'
     # user_input.get_keyword_input()
 
+    ready_made = 'ReadyMadePromptGetterSooni 호출해서 데이터 가져오기'
+
     final_prompt = '최종적으로 완성된 프롬프트'
 
     @abstractmethod
     def generate_image_prompt(self):
         """
         다음 데이터를 활용하여,
+        - ready_made_prompt.image_prompt_before_keyword
         - user_input.keyword_for_image
 
         아래 속성을 재정의
@@ -309,7 +328,11 @@ class AbstractApiPromptSender(metaclass=ABCMeta):
         """dotenv를 활용하여 open ai api key 받음"""
 
     @abstractmethod
-    def generate_response(self):
+    def get_prompt(self, prompt):
+        """propmt를 입력받음"""
+
+    @abstractmethod
+    def generate_response(self, prompt):
         """
         다음 데이터를 활용하여,
         - api_key
@@ -323,6 +346,12 @@ class AbstractApiPromptSender(metaclass=ABCMeta):
 class AbstractApiTextReceiver(metaclass=ABCMeta):
     """GPT API에서 받은 답변에서 텍스트를 추출함"""
 
-# 개발 필요
 class AbstractApiImageReceiver(metaclass=ABCMeta):
     """GPT API에서 받은 답변에서 이미지를 추출함"""
+    response = 'OPENAI API를 활용해 받은 답변 데이터'
+    content = '답변 중 content에 해당하는 부분의 데이터'
+    
+    start = '이미지 링크의 시작 부분'
+    end = '이미지 링크의 끝 부분'
+
+    image_url = '최종 이미지의 URL'

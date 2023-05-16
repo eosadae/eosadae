@@ -5,5 +5,15 @@
   "python.formatting.provider": "none",
   "python.linting.pylintEnabled": true,
   "python.linting.enabled": true,
-  "cSpell.words": ["Sooni"]
+  "cSpell.words": [
+    "apss",
+    "cppgs",
+    "dotenv",
+    "eosadae",
+    "ipgs",
+    "openai",
+    "rpgs",
+    "Sooni",
+    "spgs"
+  ]
 }
