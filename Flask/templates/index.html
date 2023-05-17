@@ -1,0 +1,40 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with GPT</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Chat with GPT</h1>
+
+    <form id="chat-form">
+        <textarea id="input" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Response:</h2>
+    <p id="response"></p>
+
+    <script>
+        $("#chat-form").submit(function(e) {
+            e.preventDefault();
+
+            $.ajax({
+                url: '/generate',
+                type: 'post',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    'prompt': $('#input').val()
+                }),
+                success: function(data) {
+                    $('#response').text(data.response);
+                },
+                error: function() {
+                    alert('Error!');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
