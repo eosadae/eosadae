@@ -1,10 +1,13 @@
+
+# -*coding: utf-8 -*
 # app.py
+
 from flask import Flask, request, jsonify, render_template
 import openai
 
 app = Flask(__name__)
 
-openai.api_key = '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'
+openai.api_key = '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'
 
 @app.route('/')
 def home():

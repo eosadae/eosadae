@@ -1,7 +1,0 @@
-In the opening, preview the food to be introduced.
-
-List the keywords, and after each keyword, insert a 30-second waiting time and write a script that encourages the sharing of opinions about the keyword.
-
-Write a variety of content related to the keyword, including anecdotes, music, and information.
-
-Conclude the ending with the nuance that you hope the introduced content has been helpful.

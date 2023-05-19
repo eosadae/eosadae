@@ -1,5 +1,0 @@
-for 1 to 3, choose three songs that are popular and good to recommend to Korean elderly people.
-you only change tts 대본 part.
-introduce the song, and say something related to it. It's great if there's a theme for three songs, and you talk based on it. Also, don't forget to encourage people to engage with your broadcast.
-go same with 4 and 5
-refer to the example script. 
