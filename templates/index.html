@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-custom">
         <div id="header">
             <a class="navbar-brand" href="#"><img src="../static/assets/suni.png" style="margin: 0px 20px" width="75" height="60">대본작가 AI순이</a>
@@ -27,30 +28,24 @@
     <div class="rectangle" style="width: 550px; height: 250px; display: inline-block; float: left;">
         <div class="form-group" style="display: inline-block; margin-right: 30px;">
             <label for="Category" class="form-label mt-2"><b>카테고리</b></label>
-            <select class="form-select" id="Category">
-            <option>선택하세요</option>  
-            <option value="I">IT</option>
-            <option value="L">생활</option>
-            <option value="C">소통</option>
-            <option value="A">예술</option>
-            <option vlaue="FL">외국어</option>
-            <option value="Sp">운동</option>
-            <option value="M">음악</option>
-            <option value="Hu">인문</option>
-            <option value="Q">퀴즈</option>
-            <option value="H">힐링</option>
-            <option value="etc">기타</option>
+            <select class="form-select" id="Category" onchange="categoryChange(this.value)">
+                <option>선택해주세요</option>
+                <option value="a">IT</option>
+                <option value="b">생활</option>
+                <option value="c">소통</option>
+                <option value="d">예술</option>
+                <option value="e">외국어</option>
+                <option value="f">운동</option>
+                <option value="g">음악</option>
+                <option value="h">인문</option>
+                <option value="i">퀴즈</option>
+                <option value="j">힐링</option>
             </select>
         </div>
 
-        <div class="form-group" style="display: inline-block;">
-            <label for="Subject" class="form-label mt-2"><b>주제</b></label>
-            <select class="form-select" id="Subject">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>   <!--js에서 hidden 구현 + 기타선택시 hidden directbox구현-->
+        <div class"form-group" style="display: inline-block;">
+            <label for="sbj" class="form-label mt-2"><b>주제</b></label>
+            <select class="form-select" id="sbj">
             </select>
         </div>
 
@@ -62,7 +57,7 @@
     </div>
 
 <!--여기서부터 hidden box js처리-->
-    <div class="rectangle" style="width: 480px; height: 250px; float:left;">
+    <div class="rectangle" style="width: 480px; height: 250px; display: inline-block;">
         <div class="form-group" style="display: inline-block;">
             <label for="rate" class="form-label mt-2"><b>별점</b></label><br>
             <fieldset class="rate">
@@ -82,9 +77,26 @@
             <input type="submit" class="btn btn-custom" style="margin-left: 20px;" value="대본 재생성">
         </form>
     </div>
-<!--여기까지 hidden box js처리-->
 
-    <div class="table_rec" style="width: 90%; height: 1000px; background-color: lightgray; clear: left;">
+<!--여기까지 hidden box js처리-->
+    <br>
+    <div style="display: inline-block; width: 100%;">
+        <div class="card border-secondary mb-3" style="display: inline-block; width: 45%">
+            <div class="card-header">제목</div>
+            <div class="card-body">
+            <!-- <p class="card-text"> 내용 출력해주고 </p> -->
+            </div>
+        </div>
+
+        <div class="card border-secondary mb-1" style="display: inline-block; width: 45%">
+            <div class="card-header">설명</div>
+            <div class="card-body">
+            <!-- <p class="card-text"> 내용 출력해주고 </p> -->
+            </div>
+        </div>
+
+        <div class="table_rec" style="height: 1000px; background-color: lightgray; clear: left;">
+    </div>
         <!--js에서 누적 데이터에 따른 탭추가 구현필요-->
 
 
@@ -114,5 +126,6 @@
         </script>
     </div>
     <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
 </body>
 </html>
