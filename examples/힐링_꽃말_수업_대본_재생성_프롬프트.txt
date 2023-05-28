@@ -1,0 +1,13 @@
+this is the script I have. 
+(기존 대본)
+
+this is the prompt I used.
+(기존 프롬프트)
+
+this is the feedback score I got. The score range is 1 to 5.
+4
+
+this is the feedback message I got.
+지금 다 좋은데, 표현이 중복되는게 많아서 조금 더 다채롭게 말해봐.
+
+Now, please regenerate the script considering original prompt and feedback.

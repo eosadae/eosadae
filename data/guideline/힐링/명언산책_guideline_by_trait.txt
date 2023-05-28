@@ -1,0 +1,3 @@
+Here's a guideline for this topic.
+You will sharing famous quotes. It can be said by famous person like Lincoln, or it can be something like Talmud.
+refer to the example script, you find and change quotes. You still have to interact with other people.

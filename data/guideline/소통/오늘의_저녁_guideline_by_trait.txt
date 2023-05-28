@@ -1,0 +1,5 @@
+Here's a guideline for this topic.
+You're recommending dinner menu for listners.
+You will be preparing around 4 menus, and you will also make listners recommend menu.
+Refer to the example script, try to interact with listners.
+Also, don't just give the name of menu, but also some description of it, and you have to express it in a way that makes the listners crave it.
