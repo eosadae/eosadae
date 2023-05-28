@@ -23,7 +23,7 @@
   border-radius: 5% / 10%;
   filter: drop-shadow(3px 2px 3px rgb(0, 0, 0, 0.4));
   position: relative;
-  margin: 30px 10px 20px 30px;
+  margin: 30px 10px 10px 30px;
   padding: 10px 0px 0px 20px;
  }
 
@@ -31,8 +31,10 @@
   background: inherit;
   border-radius: 1% / 2%;
   position: relative;
-  margin: 30px 10px 20px 30px;
+  margin: 20px 10px 20px 30px;
   padding: 10px 0px 0px 20px;
+  width: auto;
+  min-height: 300px;
 }
 
  .navbar-custom{
@@ -47,6 +49,7 @@
 .navbar-custom .navbar-text {
   color: white;
   font-size: 30px;
+
 }
 
 :root,
@@ -4459,7 +4462,6 @@ textarea.form-control-lg {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
   height: var(--bs-card-height);
   color: var(--bs-body-color);
   word-wrap: break-word;
@@ -4467,6 +4469,8 @@ textarea.form-control-lg {
   background-clip: border-box;
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
   border-radius: var(--bs-card-border-radius);
+  margin-left: 30px;
+  margin-top: 30px;
 }
 .card > hr {
   margin-right: 0;
@@ -7672,7 +7676,7 @@ textarea.form-control-lg {
 
 .border-secondary {
   --bs-border-opacity: 1;
-  border-color: rgba(var(--bs-secondary-rgb), var(--bs-border-opacity)) !important;
+  border-color:  rgba(255, 140, 36) !important;
 }
 
 .border-success {
