@@ -4,12 +4,21 @@ from modules.user_input_getter import UserInputGetterSooni
 from modules.ready_made_prompt_getter import ReadyMadePromptGetterSooni
 
 class RegenerationPromptGeneratorSooni(AbstractRegenerationPromptGenerator):
+<<<<<<< HEAD
     def __init__(self, original_prompt, original_script, data):
         self.original_prompt = original_prompt
         self.original_script = original_script
 
         self.user_input = UserInputGetterSooni(data)
         #self.user_input.get_feedback_input()
+=======
+    def __init__(self, original_prompt, original_script):
+        self.original_prompt = original_prompt
+        self.original_script = original_script
+
+        self.user_input = UserInputGetterSooni()
+        self.user_input.get_feedback_input()
+>>>>>>> 4f6cd6af505c79bf1c92710beea504b55cd0f369
 
         self.ready_made_prompt = ReadyMadePromptGetterSooni(None, None)
 
