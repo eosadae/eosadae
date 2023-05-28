@@ -5,6 +5,7 @@ from flask import Flask, request, render_template, jsonify
 from modules.user_input_getter import UserInputGetterSooni
 from generate_script import generate_script
 from regenerate_script import regenerate_script
+from generate_image import generate_image
 
 app = Flask(__name__)
 
@@ -28,6 +29,18 @@ def get_user_input():
     print("Check Policy Prompt:", check_policy_prompt)
     print("Final Script:", final_script)
     return jsonify({'script': final_script}), 200
+
+@app.route('/image_input', methods=['POST'])
+def get_image_input():
+    data = request.get_json()
+    user_input = {
+        'image_keyword': data.get('image_keyword', ''),
+    }
+
+    final_image = generate_image(user_input)  # regenerate_script 함수 호출
+
+    print("Final Image URL:", final_image)
+    return jsonify({'script': final_image}), 200
 
 @app.route('/regenerate_input', methods=['POST'])
 def get_regeneration_input():

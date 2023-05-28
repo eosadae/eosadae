@@ -58,6 +58,27 @@ $('#chat-form').on('submit', function(e) {
         }
     });
 });
+$('#image').on('submit', function(e) {
+    e.preventDefault();
+    var imageKeyword = $('#input_image').val(); // 이미지 키워드 값을 가져옴
+
+    console.log('Image keyword:', imageKeyword);
+
+    $.ajax({
+        url: '/image_input',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({
+            'image_keyword': imageKeyword,
+        }),
+        success: function(response) {
+            console.log(response);
+            var imageTag = $("<img>"); // 새로운 img 태그를 생성합니다.
+            imageTag.attr("src", response.script); // 받은 이미지 URL을 src 속성에 할당합니다.
+            $(".table_rec.image").html(imageTag); // table_rec 클래스를 가진 요소의 내용을 새로 생성한 이미지 태그로 바꿉니다.
+        }
+    });
+});
 $('#rating-reason').on('submit', function(e) {
     e.preventDefault();
     var ctgry = $('#Category').val();

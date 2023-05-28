@@ -11,7 +11,7 @@ class UserInputGetterSooni(AbstractUserInputGetter):
         self.feedback_score = data.get('feedback_score', '')
         self.feedback_text = data.get('feedback_text', '')
 
-        self.keyword_for_image = '꽃'
+        self.keyword_for_image = data.get('image_keyword', '')
 
     def get_basic_input(self):
         self.set_example_attribute()
