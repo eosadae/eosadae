@@ -23,7 +23,6 @@ class UserInputGetterSooni(AbstractUserInputGetter):
         self.feedback_text = ''
 
         self.keyword_for_image = ''
->>>>>>> 4f6cd6af505c79bf1c92710beea504b55cd0f369
 
     def get_basic_input(self):
         self.set_example_attribute()
