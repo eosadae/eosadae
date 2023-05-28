@@ -1,2 +1,0 @@
-for 1, 2, 3, 5, 7, 8, 9, 11, and 12, refer to example script & give some changes to how to say it.
-for 4, 6, 10, copy and paste script

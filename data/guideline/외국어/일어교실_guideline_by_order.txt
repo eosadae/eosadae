@@ -1,9 +1,0 @@
-The order of the script is Opening - Word 1 - Word 2 - Word 3 - Review 1 - Sentence 2 - Sentence 3 - Review 2 - Word 4 - Word 6 - Review 3 - Sentence 4 - Sentence 5 - Sentence 6 - Review 4 - Closing
-
-Word, Read simple Japanese word in Korean pronunciation and say the meaning. Read it several times so that we can read it together.
-
-Sentence, Make a simple Japanese sentence using the Japanese word written earlier and read it in Korean.
-ex) Make a sentence using the word 1 for sentence 1. Make a sentence using the word 2 for sentence 2.
-
-Review, Read the previously learned words or sentences in 3 consecutive units.
-ex) Review 1 is word 1, 2, 3 / Review 2 is sentence 1, 2, 3
