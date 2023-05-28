@@ -3,7 +3,6 @@ from modules.abstract import AbstractUserInputGetter
 
 class UserInputGetterSooni(AbstractUserInputGetter):
     """사용자의 입력을 받음. 웹 구현까지 우선 set_example_attribute() 활용"""
-<<<<<<< HEAD
     def __init__(self,data):
         self.category = data.get('category', '')
         self.topic = data.get('topic', '')
@@ -13,16 +12,6 @@ class UserInputGetterSooni(AbstractUserInputGetter):
         self.feedback_text = data.get('feedback_text', '')
 
         self.keyword_for_image = '꽃'
-=======
-    def __init__(self):
-        self.category = ''
-        self.topic = ''
-        self.additional_request = ''
-
-        self.feedback_score = 0
-        self.feedback_text = ''
-
-        self.keyword_for_image = ''
 
     def get_basic_input(self):
         self.set_example_attribute()

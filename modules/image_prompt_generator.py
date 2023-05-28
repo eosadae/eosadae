@@ -5,15 +5,9 @@ from modules.ready_made_prompt_getter import ReadyMadePromptGetterSooni
 
 class ImagePromptGeneratorSooni(AbstractImagePromptGenerator):
     """이미지 생성용 프롬프트 제작"""
-<<<<<<< HEAD
     def __init__(self, data):
         self.user_input = UserInputGetterSooni(data)
         #self.user_input.get_keyword_input()
-=======
-    def __init__(self):
-        self.user_input = UserInputGetterSooni()
-        self.user_input.get_keyword_input()
->>>>>>> 4f6cd6af505c79bf1c92710beea504b55cd0f369
 
         self.ready_made = ReadyMadePromptGetterSooni(None, None)
 

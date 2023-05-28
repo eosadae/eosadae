@@ -6,15 +6,9 @@ from modules.ready_made_prompt_getter import ReadyMadePromptGetterSooni
 
 class ScriptPromptGeneratorSooni(AbstractScriptPromptGenerator):
     """대본 생성용 프롬프트 제작"""
-<<<<<<< HEAD
     def __init__(self,data):
         self.user_input = UserInputGetterSooni(data)
         #self.user_input.get_basic_input()
-=======
-    def __init__(self):
-        self.user_input = UserInputGetterSooni()
-        self.user_input.get_basic_input()
->>>>>>> 4f6cd6af505c79bf1c92710beea504b55cd0f369
 
         self.prompt_data = PromptDataGetterSooni(self.user_input.category, self.user_input.topic)
         self.prompt_data.get_every_data(\
