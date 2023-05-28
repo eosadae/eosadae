@@ -56,8 +56,16 @@
         </form> <!--추가지시사항+생성버튼-->
     </div>
 
+    <div class="rectangle" style="width: 250px; height: 250px; display: inline-block; float: left;">
+        <form id="chat-form">
+            <label for="input" class="form-label mt-2"><b>이미지 키워드</b></label><br>
+            <textarea class="form-control" id="input" rows="7" cols="22" style="font-size: 0.9rem;"></textarea>
+            <input type="submit" class="btn btn-custom" style="margin-right: 25px; margin-top: 10px; float: right" value="이미지 생성">
+        </form>
+    </div>
+
 <!--여기서부터 hidden box js처리-->
-    <div class="rectangle" style="width: 480px; height: 250px; display: inline-block;">
+    <div class="rectangle" style="width: 480px; height: 250px; display: inline-block; float: left;">
         <div class="form-group" style="display: inline-block;">
             <label for="rate" class="form-label mt-2"><b>별점</b></label><br>
             <fieldset class="rate">
@@ -78,7 +86,8 @@
         </form>
     </div>
 
-<!--여기까지 hidden box js처리-->
+
+
     <br>
     <div style="display: inline-block; width: 100%;">
         <div class="card border-secondary mb-3" style="display: inline-block; width: 45%">
@@ -96,6 +105,11 @@
         </div>
 
         <div class="table_rec" style="height: 1000px; background-color: lightgray; clear: left;">
+            <!-- <p></p> -->
+        </div>
+        <div class="table_rec" style="height: auto; background-color: lightgray;">
+            <!-- <img src= ""> -->
+        </div>
     </div>
         <!--js에서 누적 데이터에 따른 탭추가 구현필요-->
 
