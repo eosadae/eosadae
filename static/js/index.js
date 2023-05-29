@@ -54,7 +54,7 @@ $('#chat-form').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('.table_rec').html("<p>" + response.script + "</p>");  // script 키로 접근
+            $('.table_rec:not(.image)').html("<p>" + response.script + "</p>");  // script 키로 접근
         }
     });
 });
@@ -106,7 +106,7 @@ $('#rating-reason').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('.table_rec').html("<p>" + response.script + "</p>");  // script 키로 접근
+            $('.table_rec:not(.image)').html("<p>" + response.script + "</p>");  // script 키로 접근
         }
     });
 });
