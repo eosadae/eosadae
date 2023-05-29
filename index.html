@@ -1,0 +1,122 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>대본작가 순이</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="../static/assets/suni.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <style>
+        @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+        *{
+            font-family: 'Jeju Gothic', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-custom">
+        <div id="header">
+            <a class="navbar-brand" href="#"><img src="../static/assets/suni.png" style="margin: 0px 20px" width="75" height="60">대본작가 AI순이</a>
+        </div>
+    </nav> <!--상단 네비게이션바-->
+
+    <div class="rectangle" style="width: 550px; height: 250px; display: inline-block; float: left;">
+        <div class="form-group" style="display: inline-block; margin-right: 30px;">
+            <label for="Category" class="form-label mt-2"><b>카테고리</b></label>
+            <select class="form-select" id="Category" onchange="categoryChange(this.value)">
+                <option>선택해주세요</option>
+                <option value="IT">IT</option>
+                <option value="생활">생활</option>
+                <option value="소통">소통</option>
+                <option value="예술">예술</option>
+                <option value="외국어">외국어</option>
+                <option value="운동">운동</option>
+                <option value="음악">음악</option>
+                <option value="인문">인문</option>
+                <option value="퀴즈">퀴즈</option>
+                <option value="힐링">힐링</option>
+            </select>
+        </div>
+
+        <div class="form-group" style="display: inline-block;">
+            <label for="sbj" class="form-label mt-2"><b>주제</b></label>
+            <select class="form-select" id="sbj">
+            </select>
+        </div>
+
+        <form id="chat-form">
+            <label for="input" class="form-label mt-4"><b>추가지시</b></label><br>
+            <textarea class="form-control" id="input" rows="4" cols="45" style="float: left; font-size: 0.9rem;"></textarea>
+            <input type="submit" class="btn btn-custom" style="margin-left: 20px; margin-bottom: -110px;" value="대본 만들기">
+        </form> <!--추가지시사항+생성버튼-->
+    </div>
+    <div class="rectangle" style="width: 250px; height: 250px; display: inline-block; float: left;">
+        <form id="image">
+            <label for="input_image" class="form-label mt-2"><b>이미지 키워드</b></label><br>
+            <textarea class="form-control" id="input_image" rows="7" cols="22" style="font-size: 0.9rem;"></textarea>
+            <input type="submit" class="btn btn-custom" style="margin-right: 25px; margin-top: 10px; float: right" value="이미지 생성">
+        </form>
+    </div>
+
+<!--여기서부터 hidden box js처리-->
+    <div class="rectangle" style="width: 480px; height: 250px; display: inline-block;">
+        <div class="form-group" style="display: inline-block;">
+            <label for="rate" class="form-label mt-2"><b>별점</b></label><br>
+            <fieldset class="rate">
+                <input type="radio" id="rating5" name="rating" value="5"><label for="rating5" title="5점"></label>
+                <input type="radio" id="rating4" name="rating" value="4"><label for="rating4" title="4점"></label>
+                <input type="radio" id="rating3" name="rating" value="3"><label for="rating3" title="3점"></label>
+                <input type="radio" id="rating2" name="rating" value="2"><label for="rating2" title="2점"></label>
+                <input type="radio" id="rating1" name="rating" value="1"><label for="rating1" title="1점"></label>
+            </fieldset>
+        </div>
+
+        <form id="rating-reason">
+            <div class="form-group" style="display: inline-block;">
+                <label for="input_1" id="input_1" class="form-label mt-2"><b>사유</b></label><br>
+                <textarea class="form-control" id="feedback_text" rows="4" cols="35" style="font-size: 0.9rem;"></textarea>
+            </div>
+            <input type="submit" class="btn btn-custom" style="margin-left: 20px;" value="대본 재생성">
+        </form>
+    </div>
+
+<!--여기까지 hidden box js처리-->
+    <br>
+    <div style="display: inline-block; width: 100%;">
+        <div id="ttl_box" class="card border-secondary mb-3" style="display: inline-block; width: 45%">
+            <div class="card-header">제목</div>
+            <div class="card-body">
+            <!-- <p class="card-text"> 내용 출력해주고 </p> -->
+            </div>
+        </div>
+
+        <div id="discribe_box" class="card border-secondary mb-1" style="display: inline-block; width: 45%">
+            <div class="card-header">설명</div>
+            <div class="card-body">
+            <!-- <p class="card-text"> 내용 출력해주고 </p> -->
+            </div>
+        </div>
+
+        <div id="text_box" class="card border-secondary mb-1" style="display: inline-block; width: 98%; clear: left; min-height: 500px">
+            <div class="card-header">대본</div>
+            <div class="card-body"></div>
+        <!--   <textarea readonly class="card-body" style="display: inline-block; width: 100%; clear: left; min-height: 500px"> 
+
+            </textarea> <!-안에 대본입력-> -->
+        </div>
+
+        <div id="img_box" class="card border-secondary mb-1" style="display: inline-block; width: 98%; min-height: 300px">
+            <div class="card-header">이미지</div>
+            <div class="card-body" style="text-align : center;">
+            <!-- <p class="card-text"> 내용 출력해주고 !!이미지 가운데정렬!!  </p> -->
+            </div>
+        </div>
+    <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+    <script type="text/javascript" src="../static/js/index.js"></script>
+</body>
+</html>
