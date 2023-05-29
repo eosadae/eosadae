@@ -8,7 +8,7 @@ from regenerate_script import regenerate_script
 from generate_image import generate_image
 
 app = Flask(__name__)
-
+ 
 @app.route('/', methods=['GET'])
 def home():
     return render_template('index.html')
