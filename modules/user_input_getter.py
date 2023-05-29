@@ -3,15 +3,15 @@ from modules.abstract import AbstractUserInputGetter
 
 class UserInputGetterSooni(AbstractUserInputGetter):
     """사용자의 입력을 받음. 웹 구현까지 우선 set_example_attribute() 활용"""
-    def __init__(self):
-        self.category = ''
-        self.topic = ''
-        self.additional_request = ''
+    def __init__(self,data):
+        self.category = data.get('category', '')
+        self.topic = data.get('topic', '')
+        self.additional_request = data.get('additional_request', '')
 
-        self.feedback_score = 0
-        self.feedback_text = ''
+        self.feedback_score = data.get('feedback_score', '')
+        self.feedback_text = data.get('feedback_text', '')
 
-        self.keyword_for_image = ''
+        self.keyword_for_image = data.get('image_keyword', '')
 
     def get_basic_input(self):
         self.set_example_attribute()
