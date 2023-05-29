@@ -11,17 +11,12 @@ def generate_script(user_input):
     TOPIC = spgs.user_input.topic
 
     # api use - get script
+    BASE_ADDRESS = 'C:\\Users\\USER\\Desktop\\한국외대\\캡스톤\\eosadae-master\\data\\result_script'
+    FILE_ADDRESS = BASE_ADDRESS + f'\\{CATEGORY}\\{TOPIC}\\{TOPIC}_result_script.txt'
+    with open(FILE_ADDRESS, 'r', encoding='utf-8') as f:
+        FINAL_SCRIPT = f.read()
 
-    ORIGINAL_SCRIPT = '우리가 만든 최종 대본입니다.'
+    print(INITIAL_PROMPT)
+    print(FINAL_SCRIPT)
 
-    # policy check
-    cppgs = CheckPolicyPromptGeneratorSooni(CATEGORY, TOPIC, ORIGINAL_SCRIPT)
-    cppgs.generate_check_policy_prompt()
-    CHECK_POLICY_PROMPT = cppgs.check_policy_prompt
-
-    print(CHECK_POLICY_PROMPT)
-    # api use - get modified script
-
-    FINAL_SCRIPT = '우리가 만든 최종 대본입니다.'
-
-    return CHECK_POLICY_PROMPT, ORIGINAL_SCRIPT
+    return INITIAL_PROMPT, FINAL_SCRIPT

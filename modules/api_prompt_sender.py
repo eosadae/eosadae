@@ -11,6 +11,8 @@ class ApiPromptSenderSooni(AbstractApiPromptSender):
         self.api_key = ''
         self.prompt = ''
         self.response = ''
+        self.title_response = ''
+        self.description_response = ''
 
     def get_api_key(self):
         load_dotenv()
@@ -30,3 +32,27 @@ class ApiPromptSenderSooni(AbstractApiPromptSender):
             temperature=0,
             max_tokens=2048,
         )
+    
+    def generate_title_response(self, prompt):
+        self.get_api_key()
+        self.get_prompt(prompt)
+
+        response = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=[{"role": "user", "content": self.prompt}],
+            temperature=0,
+            max_tokens=2048,
+        )
+        self.title_response = response['choices'][0]['message']['content']  # 실제로 필요한 부분만 추출합니다.
+
+    def generate_description_response(self, prompt):
+        self.get_api_key()
+        self.get_prompt(prompt)
+
+        response = openai.ChatCompletion.create(
+            model='gpt-3.5-turbo',
+            messages=[{"role": "user", "content": self.prompt}],
+            temperature=0,
+            max_tokens=2048,
+        )
+        self.description_response = response['choices'][0]['message']['content']  # 실제로 필요한 부분만 추출합니다.

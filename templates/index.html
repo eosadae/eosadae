@@ -43,7 +43,7 @@
             </select>
         </div>
 
-        <div class"form-group" style="display: inline-block;">
+        <div class="form-group" style="display: inline-block;">
             <label for="sbj" class="form-label mt-2"><b>주제</b></label>
             <select class="form-select" id="sbj">
             </select>
@@ -88,27 +88,33 @@
 <!--여기까지 hidden box js처리-->
     <br>
     <div style="display: inline-block; width: 100%;">
-        <div class="card border-secondary mb-3" style="display: inline-block; width: 45%">
+        <div id="ttl_box" class="card border-secondary mb-3" style="display: inline-block; width: 45%">
             <div class="card-header">제목</div>
             <div class="card-body">
             <!-- <p class="card-text"> 내용 출력해주고 </p> -->
             </div>
         </div>
 
-        <div class="card border-secondary mb-1" style="display: inline-block; width: 45%">
+        <div id="discribe_box" class="card border-secondary mb-1" style="display: inline-block; width: 45%">
             <div class="card-header">설명</div>
             <div class="card-body">
             <!-- <p class="card-text"> 내용 출력해주고 </p> -->
             </div>
         </div>
 
-        <div class="table_rec" style="height: 1000px; background-color: lightgray; clear: left;">
-        </div>   
-        <!--js에서 누적 데이터에 따른 탭추가 구현필요-->
-        <div class="table_rec image" style="height: auto; background-color: lightgray;">
-            <!-- <img src= ""> -->
+        <div id="text_box" class="card border-secondary mb-1" style="display: inline-block; width: 98%; clear: left; min-height: 500px">
+            <div class="card-header">대본</div>
+        <!--   <textarea readonly class="card-body" style="display: inline-block; width: 100%; clear: left; min-height: 500px"> 
+
+            </textarea> <!-안에 대본입력-> -->
         </div>
-    </div>
+
+        <div id="img_box" class="card border-secondary mb-1" style="display: inline-block; width: 98%; min-height: 300px">
+            <div class="card-header">이미지</div>
+            <div class="card-body" style="text-align : center;">
+            <!-- <p class="card-text"> 내용 출력해주고 !!이미지 가운데정렬!!  </p> -->
+            </div>
+        </div>
     <script type="text/javascript" src="../static/js/bootstrap.js"></script>
     <script type="text/javascript" src="../static/js/index.js"></script>
 </body>

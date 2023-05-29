@@ -10,7 +10,7 @@ function categoryChange(ctgry){
     var sbj_g = ["노래자랑","팝송듣기"];
     var sbj_h = ["무비순이","순이책방"];
     var sbj_i = ["끝말잇기","빙고게임","사자성어","속담퀴즈","신조어퀴즈"];
-    var sbj_j = ["꽃말 수업","명언산책","웃음치료"];
+    var sbj_j = ["꽃말_수업","명언산책","웃음치료"];
     var target = document.getElementById("sbj");
 
     if(ctgry == "IT") var subject = sbj_a;
@@ -54,7 +54,9 @@ $('#chat-form').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('.table_rec:not(.image)').html("<p>" + response.script + "</p>");  // script 키로 접근
+            $('#text_box').html("<p>" + response.script + "</p>");  // script 키로 접근
+            $('#ttl_box .card-body').html("<p>" + response.title + "</p>");
+            $('#discribe_box .card-body').html("<p>" + response.description + "</p>");
         }
     });
 });
@@ -75,7 +77,9 @@ $('#image').on('submit', function(e) {
             console.log(response);
             var imageTag = $("<img>"); // 새로운 img 태그를 생성합니다.
             imageTag.attr("src", response.script); // 받은 이미지 URL을 src 속성에 할당합니다.
-            $(".table_rec.image").html(imageTag); // table_rec 클래스를 가진 요소의 내용을 새로 생성한 이미지 태그로 바꿉니다.
+            imageTag.css('max-width', '100%'); // 이미지의 최대 너비를 설정해 레이아웃이 깨지는 것을 방지합니다.
+            imageTag.css('height', 'auto'); // 이미지의 높이를 자동으로 설정합니다.
+            $("#img_box .card-body").html(imageTag); // table_rec 클래스를 가진 요소의 내용을 새로 생성한 이미지 태그로 바꿉니다.
         }
     });
 });
@@ -106,7 +110,7 @@ $('#rating-reason').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('.table_rec:not(.image)').html("<p>" + response.script + "</p>");  // script 키로 접근
+            $('#text_box').html("<p>" + response.script + "</p>");  // script 키로 접근
         }
     });
 });

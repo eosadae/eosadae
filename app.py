@@ -6,6 +6,7 @@ from modules.user_input_getter import UserInputGetterSooni
 from generate_script import generate_script
 from regenerate_script import regenerate_script
 from generate_image import generate_image
+from generate_title_and_description import get_title_and_description
 
 app = Flask(__name__)
  
@@ -24,11 +25,15 @@ def get_user_input():
         'feedback_text': data.get('feedback_text', '')
     }
 
-    check_policy_prompt, final_script = generate_script(user_input)  # generate_script 함수 호출
+    initial_prompt, final_script = generate_script(user_input)  # generate_script 함수 호출
+    title, description = get_title_and_description(final_script)
 
-    print("Check Policy Prompt:", check_policy_prompt)
+    print("Initial Prompt:", initial_prompt)
     print("Final Script:", final_script)
-    return jsonify({'script': final_script}), 200
+    print("Title:", title)
+    print("Description:", description)
+
+    return jsonify({'script': final_script, 'title': title, 'description': description}), 200
 
 @app.route('/image_input', methods=['POST'])
 def get_image_input():
@@ -56,6 +61,7 @@ def get_regeneration_input():
     refinal_script = regenerate_script(user_input)  # regenerate_script 함수 호출
 
     print("Refinal Script:", refinal_script)
+
     return jsonify({'script': refinal_script}), 200
 
 if __name__ == "__main__":
