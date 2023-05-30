@@ -19,7 +19,7 @@
 
 <body>
 
-    <nav class="navbar navbar-custom">
+    <nav class="navbar navbar-light">
         <div id="header">
             <a class="navbar-brand" href="#"><img src="../static/assets/suni.png" style="margin: 0px 20px" width="75" height="60">대본작가 AI순이</a>
         </div>
@@ -103,8 +103,40 @@
         </div>
 
         <div id="text_box" class="card border-secondary mb-1" style="display: inline-block; width: 98%; clear: left; min-height: 500px">
-            <div class="card-header">대본</div>
-            <div class="card-body"></div>
+
+            <div class="card-header" style=" height: 65px"> 
+                대본
+                <nav style = "float: right">
+                    <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                        <div class="btn-group me-auto" role="group" aria-label="First group">
+                          <button type="button" onclick="showContent('index1')" class="btn btn-custom" style="width: 100px; height: 50px; font-size: 1.5rem;">1</button>
+                          <button type="button" onclick="showContent('index2')" class="btn btn-custom" style="width: 100px; height: 50px; font-size: 1.5rem;">2</button>
+                          <button type="button" onclick="showContent('index3')" class="btn btn-custom" style="width: 100px; height: 50px; font-size: 1.5rem;">3</button>
+                          <button type="button" onclick="showContent('index4')" class="btn btn-custom" style="width: 100px; height: 50px; font-size: 1.5rem;">4</button>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+            <div class="card-body">
+
+    
+                <div id="index1" class="content">
+                    <textarea readonly style='display: inline-block; width: 100%; min-height: 500px;'>대본이 출력되고 있습니다 쫘라라락1</textarea>
+                </div>
+    
+                <div id="index2" class="content">
+                    <textarea readonly style='display: inline-block; width: 100%; min-height: 500px;'>대본이 출력되고 있습니다 쫘라라락2</textarea>
+                </div>
+
+                <div id="index3" class="content">
+                    <textarea readonly style='display: inline-block; width: 100%; min-height: 500px;'>대본이 출력되고 있습니다 쫘라라락3</textarea>
+                </div>
+
+                <div id="index4" class="content">
+                    <textarea readonly style='display: inline-block; width: 100%; min-height: 500px;'>대본이 출력되고 있습니다 쫘라라락4</textarea>
+                </div>
+            </div>
         <!--   <textarea readonly class="card-body" style="display: inline-block; width: 100%; clear: left; min-height: 500px"> 
 
             </textarea> <!-안에 대본입력-> -->
