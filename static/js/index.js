@@ -114,3 +114,24 @@ $('#rating-reason').on('submit', function(e) {
         }
     });
 });
+
+function showContent(target) {
+    const activeLink = document.querySelector('.btn-custom.active');
+    if(activeLink) {
+        activeLink.classList.remove('active');
+    }
+
+    const contentToShow = document.getElementById(target);
+    if (contentToShow){
+        const contents = Array.from(document.querySelectorAll('.content'));
+        contents.forEach((content) => {
+            content.style.display = 'none';
+        })
+        contentToShow.style.display = 'block';
+
+        const linkToActivate = document.querySelector(`.btn-custom[onclick="showContent('${target}')"]`);
+        if(linkToActivate) {
+            linkToActivate.classList.add('active');
+        }
+    }
+}
