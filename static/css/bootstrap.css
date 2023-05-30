@@ -17,6 +17,13 @@
 .rate input:checked ~ .rate label:hover ~ label,  
 .rate label:hover ~ input:checked ~ label { color: #ff9c45 !important;  } 
 
+ .content {
+  display: none;
+ }
+
+ .active {
+  display: block;
+ }
 
  .rectangle{
   background: white;
@@ -3210,7 +3217,7 @@ textarea.form-control-lg {
 .btn-light {
   --bs-btn-color: #000;
   --bs-btn-bg: #f8f9fa;
-  --bs-btn-border-color: #f8f9fa;
+  --bs-btn-border-color: #ff8c25;
   --bs-btn-hover-color: #000;
   --bs-btn-hover-bg: #d3d4d5;
   --bs-btn-hover-border-color: #c6c7c8;
@@ -3222,6 +3229,11 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #000;
   --bs-btn-disabled-bg: #f8f9fa;
   --bs-btn-disabled-border-color: #f8f9fa;
+}
+
+.btn-light > onclick {
+  color : #ff8c25;
+  text-decoration: none;
 }
 
 .btn-dark {
