@@ -33,6 +33,10 @@ function categoryChange(ctgry){
         target.appendChild(opt);
     }
 }
+$(document).ready(function() {
+    showContent('index1');
+});
+var scriptQueue = ["", "", "", ""];
 $('#chat-form').on('submit', function(e) {
     e.preventDefault();
     var ctgry = $('#Category').val();
@@ -54,7 +58,16 @@ $('#chat-form').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('#text_box .card-body').html("<textarea readonly style='display: inline-block; width: 100%; clear: left; min-height: 500px'>" + response.script + "</textarea>");  // script 키로 접근
+            
+            // 스크립트 저장 큐 업데이트
+            scriptQueue.pop();  // 가장 오래된 스크립트 제거
+            scriptQueue.unshift(response.script);  // 새로운 스크립트 추가
+            
+            // 각 index 엘리먼트에 스크립트 갱신
+            for (var i = 1; i <= 4; i++) {
+                $('#index' + i + ' textarea').text(scriptQueue[i-1]);
+            }
+
             $('#ttl_box .card-body').html("<p>" + response.title + "</p>");
             $('#discribe_box .card-body').html("<p>" + response.description + "</p>");
         }
@@ -110,7 +123,15 @@ $('#rating-reason').on('submit', function(e) {
         }),
         success: function(response) {
             console.log(response);
-            $('#text_box .card-body').html("<textarea readonly style='display: inline-block; width: 100%; clear: left; min-height: 500px'>" + response.script + "</textarea>");   // script 키로 접근
+            
+            // 스크립트 저장 큐 업데이트
+            scriptQueue.pop();  // 가장 오래된 스크립트 제거
+            scriptQueue.unshift(response.script);  // 새로운 스크립트 추가
+            
+            // 각 index 엘리먼트에 스크립트 갱신
+            for (var i = 1; i <= 4; i++) {
+                $('#index' + i + ' textarea').text(scriptQueue[i-1]);
+            }
         }
     });
 });
